@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MusicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+//standaard voorbeeld 
+/*Route::get('/users/{user}', [UserController::class, 'show'])*/
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::prefix('music')->group(function(){
+    Route::get('/', [MusicController::class, 'index']);
+
+    
+});
+
+
+
