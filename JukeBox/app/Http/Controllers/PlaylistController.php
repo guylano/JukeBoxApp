@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Playlist;
 use Illuminate\Http\Request;
 
-class musicController extends Controller
+class PlaylistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,7 @@ class musicController extends Controller
      */
     public function index()
     {
-        print('controller');
-        return view('music.index');
+        return view('playlist.index');
     }
 
     /**
@@ -41,21 +41,21 @@ class musicController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return view('music.show');
+        return view('playlist.show',['id'=>$id]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Playlist $playlist)
     {
         //
     }
@@ -64,10 +64,10 @@ class musicController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Playlist $playlist)
     {
         //
     }
@@ -75,10 +75,10 @@ class musicController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Playlist $playlist)
     {
         //
     }
