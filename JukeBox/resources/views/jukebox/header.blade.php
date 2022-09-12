@@ -11,7 +11,7 @@
 </head>
 <body>
 	<header class="border-b-2 border-white">
-        <div class="text-3xl font-bold">
+        <div class="text-6xl font-bold">
         	<h1>
         		<a href="{{route('playlist.index')}}">JukeBox</a>
         	</h1>

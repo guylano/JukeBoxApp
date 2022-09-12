@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Playlist {{$id}}</title>
+	<title>Playlist {{$playlist->name}}</title>
 </head>
 <body>
 	@include('jukebox.header')
-	<h3>Songs</h3>
+	<h1 class="text-3xl font-bold">{{$playlist->name}}</h1>
 	
 
 
@@ -37,18 +37,20 @@
 
 
 {{--foreach hier met data uit db--}}
-
-	            <tr class="bg-white border-b">
-	              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">{{--naam--}}
-	                Liedje
-	              </td>
-	              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">{{--lengte--}}
-	                3:15
-	              </td>
-	              <td class="text-sm text-gray-900 font-light px-1 py-2 whitespace-nowrap">{{--linkje--}}
-	                <a class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" href="{{route('music.show',['id'=>$id])}}">bekijk</a>
-	              </td>
-	            </tr>
+				@foreach($playlist->song as $song)
+				
+		            <tr class="bg-white border-b">
+		              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">{{--naam--}}
+		                {{$song->name}}
+		              </td>
+		              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">{{--lengte--}}
+		                {{$song->time}}
+		              </td>
+		              <td class="text-sm text-gray-900 font-light px-1 py-2 whitespace-nowrap">{{--linkje--}}
+		                <a class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" href="{{route('music.show',['id'=>$song->id])}}">bekijk</a>
+		              </td>
+		            </tr>
+	            @endforeach
 	            
 	          </tbody>
 	        </table>

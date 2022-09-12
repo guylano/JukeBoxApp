@@ -13,8 +13,9 @@ class PlaylistController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('playlist.index');
+    {   
+        $playlist= Playlist::where('name', '!=', null)->get();
+        return view('playlist.index', ['playlist'=>$playlist]);
     }
 
     /**
@@ -46,7 +47,8 @@ class PlaylistController extends Controller
      */
     public function show($id)
     {
-        return view('playlist.show',['id'=>$id]);
+        $playlist = Playlist::where('id',$id)->first();
+        return view('playlist.show',['playlist'=>$playlist]);
     }
 
     /**
