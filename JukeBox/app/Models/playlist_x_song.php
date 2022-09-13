@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Playlist;
 use App\Models\Song;
 
-class playlist_x_song extends Model
+class Playlist_x_song extends Model
 {
     use HasFactory;
 

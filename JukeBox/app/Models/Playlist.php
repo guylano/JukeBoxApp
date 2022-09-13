@@ -13,8 +13,8 @@ class Playlist extends Model
 
     public function Song()
     {
-        $x = $this->hasMany('App\Models\playlist_x_song', 'playlist_id', 'id');
-        dd($x);
-        return $x->Song();
+         return $this->hasMany('App\Models\Playlist_x_song', 'playlist_id', 'id');
+        
+        
     }
 }

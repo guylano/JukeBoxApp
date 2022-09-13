@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MusicController;
+use App\Http\Controllers\SongController;
 use App\Http\Controllers\PlaylistController;
 
 /*
@@ -34,9 +34,9 @@ Route::prefix('playlist')->group(function(){
     
 });
 
-Route::prefix('music')->group(function(){
-    Route::get('/', [MusicController::class, 'index'])->name('music.index');
-    Route::get('/show/{id}', [MusicController::class, 'show'])->name('music.show');
+Route::prefix('song')->group(function(){
+    Route::get('/', [SongController::class, 'index'])->name('song.index');
+    Route::get('/show/{id}', [SongController::class, 'show'])->name('song.show');
     
 });
 

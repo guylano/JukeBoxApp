@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Song;
+use App\Models\Playlist;
 
-class musicController extends Controller
+class songController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,7 @@ class musicController extends Controller
     public function index()
     {
         print('controller');
-        return view('music.index');
+        return view('song.index');
     }
 
     /**
@@ -46,7 +48,8 @@ class musicController extends Controller
      */
     public function show($id)
     {
-        return view('music.show');
+        $song = Song::where('id', $id)->first();
+        return view('song.show', ['song'=>$song]);
     }
 
     /**
