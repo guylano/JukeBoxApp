@@ -20,13 +20,24 @@ class DatabaseSeeder extends Seeder
         Song::create([
             'name' => 'sayah',
             'time' => 03.15,
+            'rating' => 9,
         ]);
         Song::create([
             'name' => 'sultan',
             'time' => 00.51,
+            'rating' => 4,
         ]);
         Playlist::create([
             'name' => 'favorieten',
+        ]);
+        Playlist::create([
+            'name' => 'mix1',
+        ]);
+        Playlist::create([
+            'name' => 'mix2',
+        ]);
+        Playlist::create([
+            'name' => 'mix3',
         ]);
         Playlist_x_song::create([
             'playlist_id' => 1,

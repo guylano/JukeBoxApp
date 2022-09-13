@@ -17,6 +17,7 @@ class CreateSongTable extends Migration
             $table->id();
             $table->string('name', 50);
             $table->float('time');
+            $table->bigInteger('rating');
             $table->timestamps();
         });
     }
