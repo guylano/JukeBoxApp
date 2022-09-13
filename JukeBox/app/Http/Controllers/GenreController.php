@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
 use Illuminate\Http\Request;
-use App\Models\Song;
-use App\Models\Playlist;
 
-class songController extends Controller
+class GenreController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class songController extends Controller
      */
     public function index()
     {
-        
-        return view('song.index');
+        //
     }
 
     /**
@@ -43,19 +41,18 @@ class songController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $song = Song::where('id', $id)->first();
-        return view('song.show', ['song'=>$song]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -67,10 +64,10 @@ class songController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Genre $genre)
     {
         //
     }
@@ -78,10 +75,10 @@ class songController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Genre $genre)
     {
         //
     }

@@ -12,4 +12,8 @@ class Song extends Model
     {
         return $this->hasMany('App\Models\Playlist_x_song', 'song_id', 'id');
     }
+    public function Genre()
+    {
+        return $this->hasMany('App\Models\Genre_x_song', 'song_id', 'id');
+    }
 }
