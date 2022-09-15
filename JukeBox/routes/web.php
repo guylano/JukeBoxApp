@@ -16,11 +16,9 @@ use App\Http\Controllers\GenreController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {return view('welcome');});
 
-
+Route::get('/', [DashboardController::class, 'index'])->middleware(['auth'])->name('welcome');
 
 Route::get('HEADERDONTTOUCHPLSTYNUB',function () {
     return view('jukebox.header')->name('jukebox.header');

@@ -29,15 +29,19 @@ class DatabaseSeeder extends Seeder
         ]);
         Playlist::create([
             'name' => 'favorieten',
+            'user_id' => 1,
         ]);
         Playlist::create([
             'name' => 'mix1',
+            'user_id' => 1,
         ]);
         Playlist::create([
             'name' => 'mix2',
+            'user_id' => 1,
         ]);
         Playlist::create([
             'name' => 'mix3',
+            'user_id' => 1,
         ]);
         Playlist_x_song::create([
             'playlist_id' => 1,
