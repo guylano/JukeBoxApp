@@ -34,7 +34,7 @@
         <div class="row-start-1 row-end-4 mx-10 w-72 h-96">
             <div class="rounded-lg shadow-lg bg-white max-w-sm">
                 <a href="{{route('genre.index')}}">
-                    <img class="rounded-t-lg w-full h-auto" src="images/muziekplaatje2.png" alt=""/>
+                    <img class="rounded-t-lg w-full h-auto" src="images/muziekplaatje3.png" alt=""/>
                 </a>
                 <div class="p-6">
                     <h5 class="text-gray-900 text-xl font-medium mb-2">Genres</h5>
@@ -55,7 +55,7 @@
         <div class="row-start-1 row-end-4 w-72 h-96">
             <div class="rounded-lg shadow-lg bg-white max-w-sm">
                 <a href="{{route('song.index')}}">
-                    <img class="rounded-t-lg w-full h-auto" src="images/muziekplaatje3.png" alt=""/>
+                    <img class="rounded-t-lg w-full h-auto" src="images/muziekplaatje2.png" alt=""/>
                 </a>
                 <div class="p-6">
                     <h5 class="text-gray-900 text-xl font-medium mb-2">Reccomended</h5>

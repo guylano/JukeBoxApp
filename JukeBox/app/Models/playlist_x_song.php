@@ -13,12 +13,5 @@ class Playlist_x_song extends Model
 
 
 
-    public function Song()
-    {
-        return $this->hasOne('App\Models\Song', 'id', 'song_id');
-    }
-    public function Playlist()
-    {
-        return $this->hasOne('App\Models\Playlist', 'id', 'playlist_id');
-    }
+    
 }
