@@ -15,6 +15,7 @@ class PlaylistController extends Controller
     public function index()
     {   
         $playlist= Playlist::where('name', '!=', null)->get();
+        
         return view('playlist.index', ['playlist'=>$playlist]);
     }
 
@@ -80,6 +81,14 @@ class PlaylistController extends Controller
      * @param  \App\Models\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
+    public function delete($id)
+    {
+        $playlist = Playlist::where('id',$id)->first();
+        //return view('playlist.show',['playlist'=>$playlist]);
+    }
+
+
+
     public function destroy(Playlist $playlist)
     {
         //

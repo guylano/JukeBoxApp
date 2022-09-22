@@ -14,7 +14,8 @@ class GenreController extends Controller
      */
     public function index()
     {
-        return view('genre.index');
+        $genres = Genre::all();
+        return view('genre.index',['genres'=>$genres]);
     }
 
     /**
@@ -45,8 +46,9 @@ class GenreController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        return view('genre.show');
+    {   
+        $genre = Genre::where('id', $id)->first();
+        return view('genre.show', ['genre'=>$genre]);
     }
 
     /**

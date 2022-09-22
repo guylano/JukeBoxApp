@@ -14,7 +14,8 @@ class DashboardController extends Controller
     {
         $playlists = Playlist::all('name')->take(3);
         $genres = Genre::all('name')->take(3);
-        $recommended = Song::orderBy('rating', 'desc')->take(3)->get();
+        $recommended = Song::orderBy('rating', 'desc')->take(3)->get('name');
+        
         return view('dashboard', ['playlists'=>$playlists, 'genres'=>$genres, 'recommended'=>$recommended]);
     }
 }

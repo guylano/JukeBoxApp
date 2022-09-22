@@ -29,6 +29,9 @@ Route::get('HEADERDONTTOUCHPLSTYNUB',function () {
 Route::prefix('playlist')->group(function(){
     Route::get('/', [PlaylistController::class, 'index'])->middleware(['auth'])->name('playlist.index');
     Route::get('/show/{id}', [PlaylistController::class, 'show'])->middleware(['auth'])->name('playlist.show');
+    Route::get('/delete/{id}', [PlaylistController::class, 'delete'])->middleware(['auth'])->name('playlist.delete');
+    Route::get('/create', [PlaylistController::class, 'create'])->middleware(['auth'])->name('playlist.create');
+    Route::post('/store', [PlaylistController::class, 'store'])->middleware(['auth'])->name('playlist.store');
 
     
 });
@@ -36,7 +39,7 @@ Route::prefix('playlist')->group(function(){
 Route::prefix('song')->group(function(){
     Route::get('/', [SongController::class, 'index'])->middleware(['auth'])->name('song.index');
     Route::get('/show/{id}', [SongController::class, 'show'])->middleware(['auth'])->name('song.show');
-    
+    Route::get('/addtosession/{id}', [SongController::class, 'session'])->middleware(['auth'])->name('song.session');
 });
 
 Route::prefix('genre')->group(function(){

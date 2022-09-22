@@ -15,8 +15,8 @@ class songController extends Controller
      */
     public function index()
     {
-        
-        return view('song.index');
+        $songs = Song::orderBy('rating', 'desc')->take(15)->get();
+        return view('song.index', ['songs' => $songs]);
     }
 
     /**
@@ -50,6 +50,28 @@ class songController extends Controller
     {
         $song = Song::where('id', $id)->first();
         return view('song.show', ['song'=>$song]);
+    }
+
+
+    public function session($id){
+        $song = Song::where('id', $id)->first();
+        
+        if(!session()->has('song')){
+
+            $songs = array();
+        }else{
+
+            $songs = session('song');
+        }
+            if(!in_array($song->id, $songs)){
+                $songs[] = $song->id;
+            }
+            session(['song' => $songs]);
+
+
+
+
+        return back();
     }
 
     /**

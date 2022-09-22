@@ -7,8 +7,8 @@
 </head>
 <body>
 	@include('jukebox.header')
-	<h1 class="text-3xl font-bold">{{$playlist->name}}</h1>
-	
+	<h1 class="text-3xl font-bold ml-4">{{$playlist->name}}</h1>
+	@if(count($playlist->song)!=null)
 
 
 
@@ -18,11 +18,11 @@
 	  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
 	    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
 	      <div class="overflow-hidden">
-	        <table class="min-w-full border text-center">
+	        <table class="table-auto border text-center">
 	          <thead class="border-b">
 	            <tr>
-	              <th scope="col" class="text-sm font-medium  px-6 py-4 border-r">
-	                Name
+	              <th scope="col" class="text-sm font-medium  px-6 py-4 border-r w-full">
+	                Song
 	              </th>
 	              <th scope="col" class="text-sm font-medium  px-6 py-4 border-r">
 	                Time
@@ -48,7 +48,7 @@
 		                {{$song->time}}
 		              </td>
 		              <td class="text-sm text-gray-900 font-light px-1 py-2 whitespace-nowrap">{{--linkje--}}
-		                <a class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" href="{{route('song.show',['id'=>$song->id])}}">bekijk</a>
+		                <a class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" href="{{route('song.show',['id'=>$song->id])}}">See more</a>
 		              </td>
 		            </tr>
 	            @endforeach
@@ -58,6 +58,12 @@
 	      </div>
 	    </div>
 	  </div>
+	</div>
+	@else
+		<h1 class="text-center w-full text-6xl mt-16">--No data available--</h1>
+	@endif
+	<div class="float-right mx-4">
+		<a class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out" href="{{route('playlist.delete',['id'=>$playlist->id])}}">Delete</a>
 	</div>
 </body>
 </html>

@@ -15,13 +15,19 @@
 	        		<a href="{{route('dashboard')}}">JukeBox</a>
 	        	</h1>
 	        </div>
-	        <div class="pr-5 grid grid-cols-2 flex justify-center w-128">
+	        <div class="pr-5 grid grid-cols-3 flex justify-center w-128">
+	        	<div class="mr-4">
+	        		@if(session()->has('song'))
+	        			<p>{{count(session('song'))}} songs selected</p>
+	        		@endif
+	        	</div>
 		        <div>
 		        	@if(Auth::user()!=null)
 
-		        		{{Auth::user()->name}}
+		        		<p>{{Auth::user()->name}}</p>
 		        	@endif
 		        </div>
+
 		        @if(Auth::user()==null)
 		        	<div class="grid grid-cols-2 flex justify-center">
 			        	<form method="POST" action="{{ route('logout') }}">
