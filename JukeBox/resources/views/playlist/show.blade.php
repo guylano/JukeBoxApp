@@ -63,6 +63,7 @@
 		<h1 class="text-center w-full text-6xl mt-16">--No data available--</h1>
 	@endif
 	<div class="float-right mx-4">
+		<a class="inline-block px-6 py-2.5 bg-yellow-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-yellow-700 hover:shadow-lg focus:bg-yellow-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-yellow-800 active:shadow-lg transition duration-150 ease-in-out" href="{{route('playlist.edit',['id'=>$playlist->id])}}">Update</a>
 		<a class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out" href="{{route('playlist.delete',['id'=>$playlist->id])}}">Delete</a>
 	</div>
 </body>

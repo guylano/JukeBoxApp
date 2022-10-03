@@ -16,9 +16,16 @@
 	        	</h1>
 	        </div>
 	        <div class="pr-5 grid grid-cols-3 flex justify-center w-128">
-	        	<div class="mr-4">
+	        	<div class="">
 	        		@if(session()->has('song'))
-	        			<p>{{count(session('song'))}} songs selected</p>
+	        			@if(!empty(session('song')))
+	        				@if(count(session('song'))!=1)
+	        					<p>{{count(session('song')).' Selections'}} </p>
+	        				@else
+	        					<p>{{count(session('song')).' Selection'}} </p>
+	        				@endif
+	        				
+	        			@endif
 	        		@endif
 	        	</div>
 		        <div>

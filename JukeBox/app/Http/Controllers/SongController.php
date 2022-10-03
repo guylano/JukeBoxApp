@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Song;
 use App\Models\Playlist;
+use App\Models\Session;
 
 class songController extends Controller
 {
@@ -54,22 +55,9 @@ class songController extends Controller
 
 
     public function session($id){
-        $song = Song::where('id', $id)->first();
-        
-        if(!session()->has('song')){
-
-            $songs = array();
-        }else{
-
-            $songs = session('song');
-        }
-            if(!in_array($song->id, $songs)){
-                $songs[] = $song->id;
-            }
-            session(['song' => $songs]);
-
-
-
+        $session = new Session();
+        $session->AddSongSession($id);
+        //dd($session);
 
         return back();
     }

@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Playlist;
+use App\Models\Song;
+use App\Models\Playlist_x_song;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Collective\Html\FormFacade as Form;
+use App\Models\Session;
 
 class PlaylistController extends Controller
 {
@@ -26,7 +31,9 @@ class PlaylistController extends Controller
      */
     public function create()
     {
-        //
+        
+        
+        return view('playlist.create');
     }
 
     /**
@@ -37,7 +44,20 @@ class PlaylistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $playlist = new Playlist;
+        $playlist->name = $request->get('pname');
+        $playlist->user_id = Auth::user()->id;
+        $playlist->save();
+        $playlist->song()->attach(session('song'));
+        $playlist->save();
+
+        $session = new Session();
+        $session->EmptySongSession();
+       
+
+        return redirect()->route('playlist.index');
+        
     }
 
     /**
@@ -58,9 +78,16 @@ class PlaylistController extends Controller
      * @param  \App\Models\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
-    public function edit(Playlist $playlist)
+    public function edit($id)
     {
-        //
+        $playlist = Playlist::where('id',$id)->first();
+        $songs = Song::all();
+        $cSongs = array();
+        foreach($playlist->Song as $s){
+            $cSongs[] = $s->id;
+        }
+        
+        return view('playlist.edit',['playlist' => $playlist, 'aSongs' => $songs, 'cSongs' =>$cSongs]);
     }
 
     /**
@@ -70,9 +97,26 @@ class PlaylistController extends Controller
      * @param  \App\Models\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Playlist $playlist)
+    public function update(Request $request)
     {
-        //
+        $id = $request->get('id');
+
+        
+        $playlist = Playlist::where('id',$id)->first();
+        Playlist_x_song::where('playlist_id', $id)->delete();
+        if($playlist == null){
+            die('playlist = null');
+        }
+        $playlist->name = $request->get('pname');
+
+        if(is_array($request->get('songs'))){
+            $playlist->song()->attach($request->get('songs'));
+        }
+        
+        
+       
+        $playlist->update();
+        return redirect()->route('playlist.index');
     }
 
     /**
@@ -84,13 +128,20 @@ class PlaylistController extends Controller
     public function delete($id)
     {
         $playlist = Playlist::where('id',$id)->first();
-        //return view('playlist.show',['playlist'=>$playlist]);
+
+        return view('playlist.delete',['playlist'=>$playlist]);
     }
 
 
 
-    public function destroy(Playlist $playlist)
+    public function destroy($id=null)
     {
-        //
+        if($id!=null){
+            Playlist::where('id', $id)->delete();
+            Playlist_x_song::where('playlist_id', $id)->delete();
+            return redirect()->route('playlist.index');
+        }else{
+            return redirect()->route('playlist.show', ['id'=>$id]);
+        }
     }
 }

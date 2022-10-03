@@ -30,6 +30,9 @@ Route::prefix('playlist')->group(function(){
     Route::get('/', [PlaylistController::class, 'index'])->middleware(['auth'])->name('playlist.index');
     Route::get('/show/{id}', [PlaylistController::class, 'show'])->middleware(['auth'])->name('playlist.show');
     Route::get('/delete/{id}', [PlaylistController::class, 'delete'])->middleware(['auth'])->name('playlist.delete');
+    Route::get('/destroy/{id}', [PlaylistController::class, 'destroy'])->middleware(['auth'])->name('playlist.destroy');
+    Route::get('/edit/{id}', [PlaylistController::class, 'edit'])->middleware(['auth'])->name('playlist.edit');
+    Route::post('/update', [PlaylistController::class, 'update'])->middleware(['auth'])->name('playlist.update');
     Route::get('/create', [PlaylistController::class, 'create'])->middleware(['auth'])->name('playlist.create');
     Route::post('/store', [PlaylistController::class, 'store'])->middleware(['auth'])->name('playlist.store');
 
