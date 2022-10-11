@@ -42,7 +42,7 @@ Route::prefix('playlist')->group(function(){
 Route::prefix('song')->group(function(){
     Route::get('/', [SongController::class, 'index'])->middleware(['auth'])->name('song.index');
     Route::get('/show/{id}', [SongController::class, 'show'])->middleware(['auth'])->name('song.show');
-    Route::get('/addtosession/{id}', [SongController::class, 'session'])->middleware(['auth'])->name('song.session');
+    Route::post('/addtosession', [SongController::class, 'session'])->middleware(['auth'])->name('song.session');
 });
 
 Route::prefix('genre')->group(function(){

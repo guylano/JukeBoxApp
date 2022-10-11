@@ -31,9 +31,10 @@ class PlaylistController extends Controller
      */
     public function create()
     {
+        $session = new Session;
+        $playlist = $session->GetPlaylistSession();
         
-        
-        return view('playlist.create');
+        return view('playlist.create', ['playlist' =>$playlist]);
     }
 
     /**
@@ -112,10 +113,10 @@ class PlaylistController extends Controller
         if(is_array($request->get('songs'))){
             $playlist->song()->attach($request->get('songs'));
         }
-        
-        
-       
         $playlist->update();
+
+        $session = new Session();
+        $session->EmptySongSession();
         return redirect()->route('playlist.index');
     }
 

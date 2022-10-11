@@ -54,8 +54,9 @@ class songController extends Controller
     }
 
 
-    public function session($id){
+    public function session(Request $request){
         $session = new Session();
+        $id = $request->get('id');
         $session->AddSongSession($id);
         //dd($session);
 

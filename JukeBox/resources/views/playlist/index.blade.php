@@ -50,7 +50,7 @@
 		<h1 class="text-center w-full text-6xl mt-16">--No data available--</h1>
 	@endif
 	<div class="float-right mx-4">
-		<a class="inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out" href="{{route('playlist.create')}}">Create</a>
+		<a class="inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out" href="{{route('playlist.create')}}">Show selected playlist</a>
 	</div>
 
 </body>

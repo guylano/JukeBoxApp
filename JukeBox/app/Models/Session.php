@@ -4,11 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Song;
 
 class Session extends Model
 {
     use HasFactory;
     
+    public function GetPlaylistSession(){
+        $playlist = array();
+        if(session()->has('song')){
+            foreach(session('song') as $id){
+                $playlist[] = Song::where('id', $id)->first();            
+
+            }
+        }
+        return($playlist);
+    }
+
     public function AddSongSession($id){
         if(!session()->has('song')){
 
