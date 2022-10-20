@@ -12,7 +12,7 @@
         <div class="row-start-1 row-end-4 w-72 h-96">
             <a href="{{route('playlist.index')}}" class="group">
                 <div class="rounded-lg shadow-lg bg-white max-w-sm group-hover:bg-blue-200 group-active:bg-red-700">
-                    <img class="rounded-t-lg w-full h-auto" src='images/muziekplaatje1.png' alt=""/>
+                    <img class="rounded-t-lg w-full " src='images/muziekplaatje1.png' alt=""/>
                     <div class="p-6">
                         <h5 class="text-gray-900 text-xl font-medium mb-2">Your Playlists</h5>
                         <p class="text-gray-700 text-base mb-4">
@@ -34,7 +34,7 @@
         <div class="row-start-1 row-end-4 mx-10 w-72 h-96">
             <a href="{{route('genre.index')}}" class="group">
                 <div class="rounded-lg shadow-lg bg-white max-w-sm group-hover:bg-blue-200 group-active:bg-red-700">
-                    <img class="rounded-t-lg w-full h-auto" src="images/muziekplaatje3.png" alt=""/>
+                    <img class="rounded-t-lg w-full " src="images/muziekplaatje3.png" alt=""/>
                     <div class="p-6">
                         <h5 class="text-gray-900 text-xl font-medium mb-2">Genres</h5>
                         <p class="text-gray-700 text-base mb-4">
@@ -55,7 +55,7 @@
         <div class="row-start-1 row-end-4 w-72 h-96">
             <a href="{{route('song.index')}}" class="group">
                 <div class="rounded-lg shadow-lg bg-white max-w-sm group-hover:bg-blue-200 group-active:bg-red-700">
-                    <img class="rounded-t-lg w-full h-auto" src="images/muziekplaatje2.png" alt=""/>
+                    <img class="rounded-t-lg w-full " src="images/muziekplaatje2.png" alt=""  />
                     <div class="p-6">
                         <h5 class="text-gray-900 text-xl font-medium mb-2">Reccomended</h5>
                         <p class="text-gray-700 text-base mb-4">

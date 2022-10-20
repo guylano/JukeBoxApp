@@ -21,16 +21,18 @@
 	        <table class="table-auto border text-center">
 	          <thead class="border-b">
 	            <tr>
-	              <th scope="col" class="text-sm font-medium  px-6 py-4 border-r w-full">
-	                Song
-	              </th>
-	              <th scope="col" class="text-sm font-medium  px-6 py-4 border-r">
-	                Time
-	              </th>
-	              <th scope="col" class="text-sm font-medium  px-1 py-2 border-r">
-	                X
-	              </th>
-	              
+		            <th scope="col" class="text-sm font-medium  px-6 py-4 border-r w-full">
+		                Song
+		            </th>
+		            <th scope="col" class="text-sm font-medium  px-6 py-4 border-r">
+		                Time
+		            </th>
+		            <th scope="col" class="text-sm font-medium  px-1 py-2 border-r">
+		                X
+		            </th>
+					<th scope="col" class="text-sm font-medium  px-1 py-2 border-r">
+		                x
+		            </th>
 	            </tr>
 	          </thead>
 	          <tbody>
@@ -49,6 +51,9 @@
 		              </td>
 		              <td class="text-sm text-gray-900 font-light px-1 py-2 whitespace-nowrap">{{--linkje--}}
 		                <a class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" href="{{route('song.show',['id'=>$song->id])}}">See more</a>
+		              </td>
+		              <td class="text-sm text-gray-900 font-light px-1 py-2 whitespace-nowrap">{{--linkje--}}
+		                <a class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out" href="{{route('playlist.remove',['id_1' => $playlist->id,'id_2'=>$song->id, 'type' => 'song'])}}">remove</a>
 		              </td>
 		            </tr>
 	            @endforeach

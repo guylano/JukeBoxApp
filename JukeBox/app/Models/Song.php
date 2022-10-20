@@ -9,7 +9,11 @@ use App\Models\Genre;
 
 class Song extends Model
 {
+
     use HasFactory;
+    
+
+
     public function Playlist()
     {
         //return $this->hasMany('App\Models\Playlist_x_song', 'song_id', 'id');

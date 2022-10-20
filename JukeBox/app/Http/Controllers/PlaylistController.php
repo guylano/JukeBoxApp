@@ -117,7 +117,7 @@ class PlaylistController extends Controller
 
         $session = new Session();
         $session->EmptySongSession();
-        return redirect()->route('playlist.index');
+        return redirect()->route('playlist.show', ['id'=>$id]);
     }
 
     /**
@@ -145,4 +145,17 @@ class PlaylistController extends Controller
             return redirect()->route('playlist.show', ['id'=>$id]);
         }
     }
+
+    public function remove($id_1=null, $id_2=null, $type=null)
+    {
+        if($type=='song'){
+            print('songg'. $id_1. $id_2);
+            $pxs = Playlist_x_song::where('playlist_id', $id_1 )->where('song_id', $id_2)->delete();
+        }
+        return redirect()->route('playlist.show',['id'=>$id_1]);
+    }
+
+
+
+
 }

@@ -35,6 +35,8 @@ Route::prefix('playlist')->group(function(){
     Route::post('/update', [PlaylistController::class, 'update'])->middleware(['auth'])->name('playlist.update');
     Route::get('/create', [PlaylistController::class, 'create'])->middleware(['auth'])->name('playlist.create');
     Route::post('/store', [PlaylistController::class, 'store'])->middleware(['auth'])->name('playlist.store');
+    Route::get('/remove/{id_1}/{id_2}/{type}', [PlaylistController::class, 'remove'])->middleware(['auth'])->name('playlist.remove');
+
 
     
 });
