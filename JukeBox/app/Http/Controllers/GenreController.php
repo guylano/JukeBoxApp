@@ -48,7 +48,11 @@ class GenreController extends Controller
     public function show($id)
     {   
         $genre = Genre::where('id', $id)->first();
-        return view('genre.show', ['genre'=>$genre]);
+        $songs = array();
+        foreach($genre->Song as $s){
+            $songs[] = processTime($s);
+        }
+        return view('genre.show', ['genre'=>$genre, 'songs'=>$songs]);
     }
 
     /**

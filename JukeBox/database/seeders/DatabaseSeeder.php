@@ -3,11 +3,15 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use App\Models\Song;
 use App\Models\Playlist_x_song;
 use App\Models\Playlist;
 use App\Models\Genre;
 use App\Models\Genre_x_song;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,15 +22,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+
+        User::create([
+            'name' => 'admin',
+            'email' => 'admin@admin.com',
+            'password' => Hash::make('password'),
+        ]);
+
+
         // \App\Models\User::factory(10)->create();
         Song::create([
             'name' => 'sayah',
-            'time' => 03.15,
+            'time' => 245,
             'rating' => 9,
         ]);
         Song::create([
             'name' => 'sultan',
-            'time' => 00.51,
+            'time' => 51,
             'rating' => 4,
         ]);
         Playlist::create([

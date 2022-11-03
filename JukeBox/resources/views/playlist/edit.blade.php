@@ -28,7 +28,7 @@
 				</div>
 				
 				<div class="cell p-1 text-gray-900">
-					<select multiple="multiple" name="songs[]" id="songs">
+					<select multiple="multiple" name="songs[]" id="songs" class="w-full">
 						@foreach($aSongs as $song)    
 						    <option value="{{$song->id}}" @if(in_array($song->id, $cSongs))selected="selected"@endif>{{$song->name}}</option>
 						@endforeach

@@ -17,7 +17,10 @@ class songController extends Controller
     public function index()
     {
         $songs = Song::orderBy('rating', 'desc')->take(15)->get();
-        return view('song.index', ['songs' => $songs]);
+        foreach($songs as $s){
+            $song[] = processTime($s);
+        }
+        return view('song.index', ['songs' => $song]);
     }
 
     /**
@@ -50,6 +53,7 @@ class songController extends Controller
     public function show($id)
     {
         $song = Song::where('id', $id)->first();
+        $song = processTime($song);
         return view('song.show', ['song'=>$song]);
     }
 

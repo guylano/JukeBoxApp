@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Collective\Html\FormFacade as Form;
 use App\Models\Session;
 
+
 class PlaylistController extends Controller
 {
     /**
@@ -31,10 +32,18 @@ class PlaylistController extends Controller
      */
     public function create()
     {
+        $playlist= array();
+        $song = array();
         $session = new Session;
-        $playlist = $session->GetPlaylistSession();
+        $songs = $session->GetPlaylistSession();
+        $totaltime=0;
         
-        return view('playlist.create', ['playlist' =>$playlist]);
+        foreach($songs as $s){
+            $totaltime=$totaltime+$s->time;
+            $song[] = processTime($s);
+        }
+        $time= processTime($totaltime);
+        return view('playlist.create', ['time'=>$time, 'songs' =>$song]);
     }
 
     /**
@@ -69,8 +78,20 @@ class PlaylistController extends Controller
      */
     public function show($id)
     {
+        $songs = array();
         $playlist = Playlist::where('id',$id)->first();
-        return view('playlist.show',['playlist'=>$playlist]);
+        $playlist->time_s = 0;
+        $playlist->time_m = 0;
+        foreach($playlist->Song as $song){
+            $playlist->time = $playlist->time + $song->time;
+            
+        }
+        $playlist=processTime($playlist);
+        foreach($playlist->Song as $s){
+            $songs[] = processTime($s);
+        }
+        
+        return view('playlist.show',['playlist'=>$playlist, 'songs'=>$songs]);
     }
 
     /**

@@ -20,9 +20,9 @@
 	        		@if(session()->has('song'))
 	        			@if(!empty(session('song')))
 	        				@if(count(session('song'))!=1)
-	        					<p>{{count(session('song')).' Selections'}} </p>
+	        					<a href="{{route('playlist.create')}}">{{count(session('song')).' Selections'}} </a>
 	        				@else
-	        					<p>{{count(session('song')).' Selection'}} </p>
+	        					<a href="{{route('playlist.create')}}">{{count(session('song')).' Selection'}} </a>
 	        				@endif
 	        				
 	        			@endif

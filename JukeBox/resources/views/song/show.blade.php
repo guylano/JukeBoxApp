@@ -8,6 +8,11 @@
 <body>
 @include('jukebox.header')
 <h1 class="text-3xl font-bold ml-4">{{$song->name}}</h1>
+<h1 class=" font-bold ml-4">Duration {{$song->time_m}}:{{$song->time_s}}</h1>
+
+
+
+
 <div class="float-right mx-4">
 	{{Form::open(array('route' => 'song.session', 'method' => 'post'))}}
 		<input type="hidden" name="id" value="{{$song->id}}">
