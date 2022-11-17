@@ -9,7 +9,7 @@ use App\Models\Song;
 class Session extends Model
 {
     use HasFactory;
-    
+    //creates a playlist with the songs that are currently in the session
     public function GetPlaylistSession(){
         $playlist = array();
         if(session()->has('song')){
@@ -20,7 +20,7 @@ class Session extends Model
         }
         return($playlist);
     }
-
+    //adds a song to the song session
     public function AddSongSession($id){
         if(!session()->has('song')){
 
@@ -41,6 +41,8 @@ class Session extends Model
         session(['song' => $songs]);
 
     }
+
+    //empties song session
     public function EmptySongSession(){
         if(session()->has('song')){
             session(['song' => array()]);

@@ -1,7 +1,7 @@
 <?php
 
 
-
+	//processes a time value stored in seconds to 2 values (minutes and seconds)
 	function processTime($Timed){	
 		if(is_object($Timed)){
 			$Timed->time_s = $Timed->time;
@@ -16,7 +16,7 @@
 		    }
 
 		    if(strlen((string)$Timed->time_s)==0){
-		        $Timed->time_s = 00;
+		        $Timed->time_s = '00';
 		    }elseif(strlen((string)$Timed->time_s)==1){
 		        $Timed->time_s = '0'.$Timed->time_s;
 		    }
@@ -28,6 +28,12 @@
 			while($time_s >= 60){
 		            $time_s= $time_s-60;
 		            $time_m = $time_m+1;
+		    }
+		    if(strlen((string)$time_s)==0){
+		    	$time_s='00';
+		    }
+		    elseif(strlen((string)$time_s)==1){
+		        $time_s = '0'.$time_s;
 		    }
 		    $Timed=$time_m.':'.$time_s;
 		    return($Timed);

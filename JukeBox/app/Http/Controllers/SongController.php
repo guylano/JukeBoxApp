@@ -14,9 +14,10 @@ class songController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //shows all songs
     public function index()
     {
-        $songs = Song::orderBy('rating', 'desc')->take(15)->get();
+        $songs = Song::orderBy('rating', 'desc')->get();
         foreach($songs as $s){
             $song[] = processTime($s);
         }
@@ -50,6 +51,7 @@ class songController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //shows a song
     public function show($id)
     {
         $song = Song::where('id', $id)->first();
@@ -57,7 +59,7 @@ class songController extends Controller
         return view('song.show', ['song'=>$song]);
     }
 
-
+    //adds a song to the session
     public function session(Request $request){
         $session = new Session();
         $id = $request->get('id');

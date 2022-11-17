@@ -12,6 +12,7 @@ class GenreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //shows all genres 
     public function index()
     {
         $genres = Genre::all();
@@ -45,6 +46,7 @@ class GenreController extends Controller
      * @param  \App\Models\Genre  $genre
      * @return \Illuminate\Http\Response
      */
+    //shows a genre and all songs in said genre
     public function show($id)
     {   
         $genre = Genre::where('id', $id)->first();

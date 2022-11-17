@@ -18,6 +18,7 @@ class PlaylistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //shows all saved playlists
     public function index()
     {   
         $playlist= Playlist::where('name', '!=', null)->get();
@@ -30,6 +31,7 @@ class PlaylistController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //shows the playlist currently in the session and gives an option to save it
     public function create()
     {
         $playlist= array();
@@ -52,6 +54,7 @@ class PlaylistController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //function to save the playlist from the session
     public function store(Request $request)
     {
         
@@ -76,6 +79,7 @@ class PlaylistController extends Controller
      * @param  \App\Models\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
+    //shows playlist and its songs
     public function show($id)
     {
         $songs = array();
@@ -100,6 +104,7 @@ class PlaylistController extends Controller
      * @param  \App\Models\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
+    //form page to update an existing playlist
     public function edit($id)
     {
         $playlist = Playlist::where('id',$id)->first();
@@ -119,6 +124,7 @@ class PlaylistController extends Controller
      * @param  \App\Models\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
+    //stores updated playlist in database
     public function update(Request $request)
     {
         $id = $request->get('id');
@@ -147,6 +153,7 @@ class PlaylistController extends Controller
      * @param  \App\Models\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
+    //form to delete a playlist
     public function delete($id)
     {
         $playlist = Playlist::where('id',$id)->first();
@@ -155,7 +162,7 @@ class PlaylistController extends Controller
     }
 
 
-
+    //delete the playlist
     public function destroy($id=null)
     {
         if($id!=null){
@@ -166,7 +173,7 @@ class PlaylistController extends Controller
             return redirect()->route('playlist.show', ['id'=>$id]);
         }
     }
-
+    //remove a connection between a playlist and a song
     public function remove($id_1=null, $id_2=null, $type=null)
     {
         if($type=='song'){

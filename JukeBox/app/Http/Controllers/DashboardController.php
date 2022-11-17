@@ -10,6 +10,7 @@ use App\Models\Genre;
 
 class DashboardController extends Controller
 {
+    //base page 
     public function index()
     {
         $playlists = Playlist::all('name')->take(3);
