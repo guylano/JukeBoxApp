@@ -84,6 +84,9 @@ class PlaylistController extends Controller
     {
         $songs = array();
         $playlist = Playlist::where('id',$id)->first();
+        if($playlist==null){
+            return redirect()->route('playlist.index');
+        }
         $playlist->time_s = 0;
         $playlist->time_m = 0;
         foreach($playlist->Song as $song){
